@@ -1,0 +1,5 @@
+I ran the container with docker run devopsdockeruh/simple-web-service:ubuntu and got the secret message with: docker exec 159  tail -f ./text.log (after checking with docker ps -a what was the container id)
+
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+
+
