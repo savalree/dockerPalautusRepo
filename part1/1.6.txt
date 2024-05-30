@@ -1,0 +1,5 @@
+Secret message: 
+You found the correct password. Secret message is:
+"This is the secret message"
+
+I ran given command, found the image in Docker hub and then gave input "basics"
