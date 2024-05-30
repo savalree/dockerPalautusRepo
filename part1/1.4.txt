@@ -1,0 +1,9 @@
+First I ran docker run -it ubuntu sh -c 'while true; do echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website; done'
+but I got error message "sh: 1: curl: not found".
+
+Fix:
+1. I ran ubuntu with docker run -it ubuntu
+2. I updated apt because I hadn't used it yet: apt-get update 
+3. Then I installed curl with: apt-get -y install curl
+4. And I ran sh -c 'while true; do echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website; done'
+
