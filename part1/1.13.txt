@@ -1,0 +1,16 @@
+Dockerfile:
+
+FROM golang:1.16.1
+
+WORKDIR /usr/src/app
+
+COPY . .
+
+RUN go build
+
+EXPOSE 8080
+
+CMD ./server
+
+Commands used:
+docker build . -t back && docker run -p 8080:8080 back 
