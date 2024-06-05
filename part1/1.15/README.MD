@@ -2,7 +2,9 @@
 
 ### Description
 
+The app is used to curl websites.
+
 ### How to run
 Pull the newest version of image with ``` docker pull savalre/youtube-dl:latest ```
-
-For this exercise to be complete you have to provide the link to the project in Docker Hub, make sure you at least have a basic description and instructions for how to run the application in a README that's available through your submission.
+Start the image with ```docker run -it savalre/youtube-dl```
+Input type the app accepts is <website.com>
