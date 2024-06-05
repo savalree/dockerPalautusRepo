@@ -5,6 +5,6 @@
 The app is used to curl websites.
 
 ### How to run
-Pull the newest version of image with ``` docker pull savalre/youtube-dl:latest ```
-Start the image with ```docker run -it savalre/youtube-dl```
-Input type the app accepts is <website.com>
+Pull the newest version of image with ``` docker pull savalre/youtube-dl:latest ```  
+Start the image with ```docker run -it savalre/youtube-dl```  
+Input type the app accepts is <website.com>  
