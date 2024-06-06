@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+ 
+  frontend:
+    image: frontend
+    build: .
+    container_name: frontend-compose
+    ports:
+      - 5001:5000
+    environment:
+      - REACT_APP_BACKEND_URL=http://backend:8080
+    depends_on:
+      - backend
+   
+  backend:
+    image: backend
+    build: .
+    ports:
+      - 8080:8080
+    environment:
+      - REQUEST_ORIGIN=http://localhost:5000
