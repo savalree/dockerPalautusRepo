@@ -7,7 +7,7 @@ services:
     build: .
     container_name: frontend-compose
     ports:
-      - 5001:5000
+      - "127.0.0.1:5000:5000"
     environment:
       - REACT_APP_BACKEND_URL=http://backend:8080
     depends_on:
