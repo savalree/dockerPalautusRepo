@@ -1,0 +1,53 @@
+'version: '3.4'
+
+services:
+
+  db:
+    image: postgres:13.2-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: example
+    container_name: db_possu
+ 
+  frontend:
+    image: frontend
+    build: .
+    container_name: frontend-fix
+    ports:
+      - "127.0.0.1:5000:5000"
+    environment:
+      - REACT_APP_BACKEND_URL=http://backend:8080
+    depends_on:
+      - backend
+   
+  backend:
+    image: backend
+    build: .
+    container_name: backend-fix
+    ports:
+      - 8080:8080
+    environment:
+      - REQUEST_ORIGIN=http://localhost:5000
+      - REDIS_HOST=redisHost
+      - POSTGRES_HOST=db
+      - POSTGRES_PASSWORD=example
+    depends_on:
+      - db
+      - redis
+
+  nginx:
+    image: "nginx:latest"
+    container_name: nginx-fix
+    ports:
+      - "80:80"
+    volumes:
+      - type: bind
+        source: ./nginx.conf
+        target: /etc/nginx/nginx.conf
+    depends_on:
+      - frontend
+      - backend
+  
+  redis:
+    image: "redis:latest"
+    container_name: redisHost  

@@ -1,0 +1,15 @@
+FROM golang:1.16.1
+
+WORKDIR /usr/src/app
+
+COPY . .
+
+RUN go build
+
+#old line: ENV REQUEST_ORIGIN=http://localhost:5000
+
+ENV REQUEST_ORIGIN=http://localhost/
+
+EXPOSE 8080
+
+CMD ./server
